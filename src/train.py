@@ -47,6 +47,7 @@ def main():
 
     # Train
     model = build_pipeline()
+    cv_scores = cross_val_score(model, X_train, y_train, cv=5, scoring="f1")
     model.fit(X_train, y_train)
 
     cv_scores = cross_val_score(
